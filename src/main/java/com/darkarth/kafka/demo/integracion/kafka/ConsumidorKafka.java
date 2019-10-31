@@ -1,5 +1,7 @@
 package com.darkarth.kafka.demo.integracion.kafka;
 
+import static com.darkarth.kafka.demo.util.MensajeUtil.obtenApplicationId;
+
 import java.util.Date;
 
 import com.darkarth.kafka.demo.entidad.ObjetoRegistro;
@@ -22,7 +24,7 @@ public class ConsumidorKafka {
     @KafkaListener(topics="security-audit-control-mx", groupId = "onPremSupport")
     public void consumir(String mensaje) {
         LOGGER.debug("Message received: \n{}", mensaje);
-        demoServicio.persistir(new ObjetoRegistro(null, mensaje, "", new Date()));
+        demoServicio.persistir(new ObjetoRegistro(null, mensaje, obtenApplicationId(mensaje), new Date()));
     }
 
 }
