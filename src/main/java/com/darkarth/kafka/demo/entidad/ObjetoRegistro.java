@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -16,6 +17,7 @@ import lombok.Data;
  */
 @Entity //Indicamos a Hibernate que esta clase representará una tabla.
 @Data //Indicamos que queremos que se generen automáticamente los getters/setters
+@AllArgsConstructor
 public class ObjetoRegistro {
 
     @Id //Indicamos que el atributo es el id en la tabla.

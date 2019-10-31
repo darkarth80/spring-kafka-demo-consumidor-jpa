@@ -6,9 +6,11 @@ spring:
   profiles:
     active: lh
   kafka:
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: onPremSupport
+      #auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   datasource:
     #url: jdbc:h2:mem:testdb
     url: jdbc:h2:file:./dev/em-databases/demodb
@@ -25,5 +27,11 @@ spring:
 
 logging:
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: dev/logs/spring-boot/${spring.application.name}.log
+  level:
+    root: INFO
+    com.darkarth: TRACE
+    org.springframework.web: INFO
+    org.springframework.kafka: INFO
