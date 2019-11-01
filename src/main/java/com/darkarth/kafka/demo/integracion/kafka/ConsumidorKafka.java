@@ -23,7 +23,7 @@ public class ConsumidorKafka {
 
     @KafkaListener(topics="security-audit-control-mx", groupId = "onPremSupport")
     public void consumir(String mensaje) {
-        LOGGER.debug("Message received: \n{}", mensaje);
+        LOGGER.debug("Mensaje recibido: \n{}", mensaje);
         demoServicio.persistir(new ObjetoRegistro(null, mensaje, obtenApplicationId(mensaje), new Date()));
     }
 
