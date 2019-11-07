@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-kafka-demo-consumidor-jpa
+  jmx:
+    default-domain: spring-kafka-demo-consumidor-jpa
+  profiles:
+    active: lh
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: dev/logs/spring-boot/${spring.application.name}.log
+  level:
+    root: WARN
+    com.darkarth: WARN
+    org.springframework.web: WARN
+    org.springframework.kafka: WARN
