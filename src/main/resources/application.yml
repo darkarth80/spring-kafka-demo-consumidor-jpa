@@ -35,3 +35,7 @@ logging:
     com.darkarth: TRACE
     org.springframework.web: INFO
     org.springframework.kafka: INFO
+
+app:
+  db:
+    port: 8082
